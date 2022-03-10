@@ -8,6 +8,12 @@ S = control.tf([1], [1,2,1,0])
 C = control.tf([1], [1])
 L = control.series(C,S)
 
+print("system")
+print(S)
+
+print("system w/ controller")
+print(L)
+
 w0 = 0.1
 w1 = 10
 dw = 0.001
@@ -27,4 +33,19 @@ print("%.2f" % PM)
 print("%.2f" % wg)
 print("%.2f" % wp)
 
+# plt.show()
+
+t = np.linspace(0,3,1000)
+(t,y) = control.step_response(S, t)
+plt.figure()
+plt.plot(t,y)
+plt.xlabel("t[s]")
+plt.grid()
+# plt.show()
+
+(t,y1) = control.step_response(L, t)
+plt.figure()
+plt.plot(t,y1)
+plt.xlabel("t[s]")
+plt.grid()
 plt.show()
