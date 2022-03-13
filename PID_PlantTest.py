@@ -11,11 +11,12 @@ H = control.tf([10],[1,10])
 print(H)
 
 
-
-I = control.tf([50,12750,62500],[1,0,2500])
+KI = control.tf([5,25],[1,0])
+KPID = control.tf([10,2500],[1,2500]); 
 P = control.tf([5],[1])
-print(I)
-H1 = control.series(H,I)
+
+PID = control.series(KI,KPID);
+H1 = control.series(H,PID)
 # H1 = control.series(H,P)
 H1 = control.feedback(H1,[1],-1) # arg2 = [1], unit feedback
 print(H1)
