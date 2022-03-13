@@ -2,7 +2,7 @@ import numpy as np
 import control 
 import matplotlib.pyplot as plt
 
-(num_pade, den_pade) = control.pade(5,2) # T = 5 n = 10 
+(num_pade, den_pade) = control.pade(5,2) # T = 5 n = 2
 # T is time delay
 # n is order of pade approximation
  

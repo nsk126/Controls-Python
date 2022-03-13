@@ -3,11 +3,15 @@ import control
 import matplotlib.pyplot as plt
 
 wb = 1 #bandwidth
-H = control.tf([1], [1/wb , 1]) # tf of a Low pass filter of cutoff at wb
+H = control.tf([1], [1/wb , 2]) # tf of a Low pass filter of cutoff at wb
 print(H)
+
+# C = control.tf([1], [0.1])
+# H = control.series(H,C)
+
 w0 = 0.1
 w1 = 10
-dw = 0.001
+dw = 0.001 
 nw = int((w1-w0)/dw) + 1 # samples
 
 w = np.linspace(w0,w1,nw)
